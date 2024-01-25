@@ -77,6 +77,8 @@ android {
 
     dependencies {
 
+        implementation fileTree(include: '*.jar', dir: 'libs')
+
         implementation 'com.xiaomi:gamecenter:3.6.0'
 
         implementation 'org.greenrobot:eventbus:3.1.1'
@@ -87,6 +89,8 @@ android {
 
         implementation 'com.xiaomi.account:oauth-android:3.5.1'
         implementation 'com.xiaomi.gamevenus:milink-compat:4.0.34'
+
+        implementation 'com.alipay.sdk:alipaysdk-android:15.8.17'
     }
 
     testOptions {

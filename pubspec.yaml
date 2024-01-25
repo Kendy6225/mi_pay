@@ -1,7 +1,9 @@
 name: mi_pay
 description: "Android小米联运支付SDK"
 version: 1.0.1
-homepage:
+homepage: https://github.com/Kendy6225/mi_pay.git
+repository: https://github.com/Kendy6225/mi_pay.git
+
 
 environment:
   sdk: '>=3.2.3 <4.0.0'

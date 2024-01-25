@@ -41,10 +41,8 @@ class _MyAppState extends State<MyApp> with SDKCallback {
     // setState to update our non-existent appearance.
     MiPay().addCallback(this);
 
-    bool isLogin = await MiPay().isLogin();
-    if(!isLogin){
-      await MiPay().login();
-    }
+    // await MiPay().login();
+    //bool isLogin = await MiPay().isLogin();
     MiPay().pay(feeValue: 1000,orderId: 'rx0000192');
   }
 
