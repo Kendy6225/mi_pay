@@ -1,0 +1,101 @@
+group 'com.mio.mi_pay'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven {
+            url = 'https://packages.aliyun.com/maven/repository/2452141-release-X7PDoN/'
+            credentials {
+                username = '658cd97333a0fbf43bbcb67b'
+                password = 'O-lv5BgXbEXE'
+            }
+        }
+        maven {
+            url = 'https://packages.aliyun.com/maven/repository/2452141-snapshot-4BHKc5/'
+            credentials {
+                username = '658cd97333a0fbf43bbcb67b'
+                password = 'O-lv5BgXbEXE'
+            }
+        }
+        // 小米sdk
+        maven {
+            url "https://repos.xiaomi.com/maven"
+            credentials {
+                username 'mi-gamesdk'
+                password 'AKCp8mYeLuhuaGj6bK1XK7t2w4CsPuGwg6GpQdZ9cat7K59y5sD7Tx3dHjJcFrBGj3TQ4vi7g'
+            }
+        }
+        maven { url "https://jitpack.io" }
+        maven {
+            credentials {
+                username '5f45c9022d5925c55bc00c6f'
+                password 'NQwPJAa42nlV'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2028284-release-awMPKn/'
+        }
+        maven {
+            credentials {
+                username '5f45c9022d5925c55bc00c6f'
+                password 'NQwPJAa42nlV'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2028284-snapshot-gw4bH1/'
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.mio.mi_pay'
+    }
+
+    compileSdkVersion 33
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 19
+    }
+
+    dependencies {
+
+        implementation 'com.xiaomi:gamecenter:3.6.0'
+
+        implementation 'org.greenrobot:eventbus:3.1.1'
+        implementation 'com.android.volley:volley:1.1.0'
+        implementation 'androidx.multidex:multidex:2.0.0'
+        implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+        implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+
+        implementation 'com.xiaomi.account:oauth-android:3.5.1'
+        implementation 'com.xiaomi.gamevenus:milink-compat:4.0.34'
+    }
+
+    testOptions {
+        unitTests.all {
+            testLogging {
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen { false }
+                showStandardStreams = true
+            }
+        }
+    }
+}
