@@ -1,8 +1,7 @@
 # mi_pay
 
 Android小米联运支付SDK
-- 微信已内置
-- 支付宝sdk自行添加
+- 微信sdk已内置
 
 ### 初始化sdk
 ```dart
